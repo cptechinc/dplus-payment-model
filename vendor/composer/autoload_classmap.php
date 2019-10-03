@@ -6,13 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Authnet' => $baseDir . '/src/Model/Authnet.php',
-    'AuthnetQuery' => $baseDir . '/src/Model/AuthnetQuery.php',
-    'Base\\Authnet' => $baseDir . '/src/Model/Base/Authnet.php',
-    'Base\\AuthnetQuery' => $baseDir . '/src/Model/Base/AuthnetQuery.php',
+    'Base\\Payment' => $baseDir . '/src/Model/Base/Payment.php',
+    'Base\\PaymentQuery' => $baseDir . '/src/Model/Base/PaymentQuery.php',
     'Dpluso\\Payments\\Model\\MagicMethodTraits' => $baseDir . '/src/MagicMethods.trait.php',
     'Dpluso\\Payments\\Model\\QueryTraits' => $baseDir . '/src/Query.trait.php',
     'Dpluso\\Payments\\Model\\ThrowError' => $baseDir . '/src/ThrowError.trait.php',
     'Dpluso\\Payments\\Model\\ThrowErrorTrait' => $baseDir . '/src/ThrowError.trait.php',
     'Map\\AuthnetTableMap' => $baseDir . '/src/Model/Map/AuthnetTableMap.php',
+    'Map\\PaymentTableMap' => $baseDir . '/src/Model/Map/PaymentTableMap.php',
+    'Payment' => $baseDir . '/src/Model/Payment.php',
+    'PaymentQuery' => $baseDir . '/src/Model/PaymentQuery.php',
 );

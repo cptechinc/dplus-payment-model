@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \Authnet as ChildAuthnet;
-use \AuthnetQuery as ChildAuthnetQuery;
+use \Payment as ChildPayment;
+use \PaymentQuery as ChildPaymentQuery;
 use \Exception;
 use \PDO;
-use Map\AuthnetTableMap;
+use Map\PaymentTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,173 +19,173 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildAuthnetQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
- * @method     ChildAuthnetQuery orderByRectype($order = Criteria::ASC) Order by the rectype column
- * @method     ChildAuthnetQuery orderByDate($order = Criteria::ASC) Order by the date column
- * @method     ChildAuthnetQuery orderByTime($order = Criteria::ASC) Order by the time column
- * @method     ChildAuthnetQuery orderByCardnbr($order = Criteria::ASC) Order by the cardnbr column
- * @method     ChildAuthnetQuery orderByTrackIi($order = Criteria::ASC) Order by the track_ii column
- * @method     ChildAuthnetQuery orderByExpdate($order = Criteria::ASC) Order by the expdate column
- * @method     ChildAuthnetQuery orderByCvv($order = Criteria::ASC) Order by the cvv column
- * @method     ChildAuthnetQuery orderByType($order = Criteria::ASC) Order by the type column
- * @method     ChildAuthnetQuery orderByAmount($order = Criteria::ASC) Order by the amount column
- * @method     ChildAuthnetQuery orderByCardName($order = Criteria::ASC) Order by the card_name column
- * @method     ChildAuthnetQuery orderByStreet($order = Criteria::ASC) Order by the street column
- * @method     ChildAuthnetQuery orderByZipcode($order = Criteria::ASC) Order by the zipcode column
- * @method     ChildAuthnetQuery orderByCustid($order = Criteria::ASC) Order by the custid column
- * @method     ChildAuthnetQuery orderByCustpo($order = Criteria::ASC) Order by the custpo column
- * @method     ChildAuthnetQuery orderByTransId($order = Criteria::ASC) Order by the trans_id column
- * @method     ChildAuthnetQuery orderByAuthcode($order = Criteria::ASC) Order by the authcode column
- * @method     ChildAuthnetQuery orderByAvsMsg($order = Criteria::ASC) Order by the avs_msg column
- * @method     ChildAuthnetQuery orderByErrorCode($order = Criteria::ASC) Order by the error_code column
- * @method     ChildAuthnetQuery orderByErrorMsg($order = Criteria::ASC) Order by the error_msg column
- * @method     ChildAuthnetQuery orderByResult($order = Criteria::ASC) Order by the result column
- * @method     ChildAuthnetQuery orderByTrackI($order = Criteria::ASC) Order by the track_i column
- * @method     ChildAuthnetQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildPaymentQuery orderByOrdernbr($order = Criteria::ASC) Order by the ordernbr column
+ * @method     ChildPaymentQuery orderByRectype($order = Criteria::ASC) Order by the rectype column
+ * @method     ChildPaymentQuery orderByDate($order = Criteria::ASC) Order by the date column
+ * @method     ChildPaymentQuery orderByTime($order = Criteria::ASC) Order by the time column
+ * @method     ChildPaymentQuery orderByCardnbr($order = Criteria::ASC) Order by the cardnbr column
+ * @method     ChildPaymentQuery orderByTrackIi($order = Criteria::ASC) Order by the track_ii column
+ * @method     ChildPaymentQuery orderByExpdate($order = Criteria::ASC) Order by the expdate column
+ * @method     ChildPaymentQuery orderByCvv($order = Criteria::ASC) Order by the cvv column
+ * @method     ChildPaymentQuery orderByType($order = Criteria::ASC) Order by the type column
+ * @method     ChildPaymentQuery orderByAmount($order = Criteria::ASC) Order by the amount column
+ * @method     ChildPaymentQuery orderByCardName($order = Criteria::ASC) Order by the card_name column
+ * @method     ChildPaymentQuery orderByStreet($order = Criteria::ASC) Order by the street column
+ * @method     ChildPaymentQuery orderByZipcode($order = Criteria::ASC) Order by the zipcode column
+ * @method     ChildPaymentQuery orderByCustid($order = Criteria::ASC) Order by the custid column
+ * @method     ChildPaymentQuery orderByCustpo($order = Criteria::ASC) Order by the custpo column
+ * @method     ChildPaymentQuery orderByTransId($order = Criteria::ASC) Order by the trans_id column
+ * @method     ChildPaymentQuery orderByAuthcode($order = Criteria::ASC) Order by the authcode column
+ * @method     ChildPaymentQuery orderByAvsMsg($order = Criteria::ASC) Order by the avs_msg column
+ * @method     ChildPaymentQuery orderByErrorCode($order = Criteria::ASC) Order by the error_code column
+ * @method     ChildPaymentQuery orderByErrorMsg($order = Criteria::ASC) Order by the error_msg column
+ * @method     ChildPaymentQuery orderByResult($order = Criteria::ASC) Order by the result column
+ * @method     ChildPaymentQuery orderByTrackI($order = Criteria::ASC) Order by the track_i column
+ * @method     ChildPaymentQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildAuthnetQuery groupByOrdernbr() Group by the ordernbr column
- * @method     ChildAuthnetQuery groupByRectype() Group by the rectype column
- * @method     ChildAuthnetQuery groupByDate() Group by the date column
- * @method     ChildAuthnetQuery groupByTime() Group by the time column
- * @method     ChildAuthnetQuery groupByCardnbr() Group by the cardnbr column
- * @method     ChildAuthnetQuery groupByTrackIi() Group by the track_ii column
- * @method     ChildAuthnetQuery groupByExpdate() Group by the expdate column
- * @method     ChildAuthnetQuery groupByCvv() Group by the cvv column
- * @method     ChildAuthnetQuery groupByType() Group by the type column
- * @method     ChildAuthnetQuery groupByAmount() Group by the amount column
- * @method     ChildAuthnetQuery groupByCardName() Group by the card_name column
- * @method     ChildAuthnetQuery groupByStreet() Group by the street column
- * @method     ChildAuthnetQuery groupByZipcode() Group by the zipcode column
- * @method     ChildAuthnetQuery groupByCustid() Group by the custid column
- * @method     ChildAuthnetQuery groupByCustpo() Group by the custpo column
- * @method     ChildAuthnetQuery groupByTransId() Group by the trans_id column
- * @method     ChildAuthnetQuery groupByAuthcode() Group by the authcode column
- * @method     ChildAuthnetQuery groupByAvsMsg() Group by the avs_msg column
- * @method     ChildAuthnetQuery groupByErrorCode() Group by the error_code column
- * @method     ChildAuthnetQuery groupByErrorMsg() Group by the error_msg column
- * @method     ChildAuthnetQuery groupByResult() Group by the result column
- * @method     ChildAuthnetQuery groupByTrackI() Group by the track_i column
- * @method     ChildAuthnetQuery groupByDummy() Group by the dummy column
+ * @method     ChildPaymentQuery groupByOrdernbr() Group by the ordernbr column
+ * @method     ChildPaymentQuery groupByRectype() Group by the rectype column
+ * @method     ChildPaymentQuery groupByDate() Group by the date column
+ * @method     ChildPaymentQuery groupByTime() Group by the time column
+ * @method     ChildPaymentQuery groupByCardnbr() Group by the cardnbr column
+ * @method     ChildPaymentQuery groupByTrackIi() Group by the track_ii column
+ * @method     ChildPaymentQuery groupByExpdate() Group by the expdate column
+ * @method     ChildPaymentQuery groupByCvv() Group by the cvv column
+ * @method     ChildPaymentQuery groupByType() Group by the type column
+ * @method     ChildPaymentQuery groupByAmount() Group by the amount column
+ * @method     ChildPaymentQuery groupByCardName() Group by the card_name column
+ * @method     ChildPaymentQuery groupByStreet() Group by the street column
+ * @method     ChildPaymentQuery groupByZipcode() Group by the zipcode column
+ * @method     ChildPaymentQuery groupByCustid() Group by the custid column
+ * @method     ChildPaymentQuery groupByCustpo() Group by the custpo column
+ * @method     ChildPaymentQuery groupByTransId() Group by the trans_id column
+ * @method     ChildPaymentQuery groupByAuthcode() Group by the authcode column
+ * @method     ChildPaymentQuery groupByAvsMsg() Group by the avs_msg column
+ * @method     ChildPaymentQuery groupByErrorCode() Group by the error_code column
+ * @method     ChildPaymentQuery groupByErrorMsg() Group by the error_msg column
+ * @method     ChildPaymentQuery groupByResult() Group by the result column
+ * @method     ChildPaymentQuery groupByTrackI() Group by the track_i column
+ * @method     ChildPaymentQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildAuthnetQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildAuthnetQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildAuthnetQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildPaymentQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildPaymentQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildPaymentQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildAuthnetQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildAuthnetQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildAuthnetQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildPaymentQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildPaymentQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildPaymentQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildAuthnet findOne(ConnectionInterface $con = null) Return the first ChildAuthnet matching the query
- * @method     ChildAuthnet findOneOrCreate(ConnectionInterface $con = null) Return the first ChildAuthnet matching the query, or a new ChildAuthnet object populated from the query conditions when no match is found
+ * @method     ChildPayment findOne(ConnectionInterface $con = null) Return the first ChildPayment matching the query
+ * @method     ChildPayment findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPayment matching the query, or a new ChildPayment object populated from the query conditions when no match is found
  *
- * @method     ChildAuthnet findOneByOrdernbr(string $ordernbr) Return the first ChildAuthnet filtered by the ordernbr column
- * @method     ChildAuthnet findOneByRectype(string $rectype) Return the first ChildAuthnet filtered by the rectype column
- * @method     ChildAuthnet findOneByDate(int $date) Return the first ChildAuthnet filtered by the date column
- * @method     ChildAuthnet findOneByTime(int $time) Return the first ChildAuthnet filtered by the time column
- * @method     ChildAuthnet findOneByCardnbr(string $cardnbr) Return the first ChildAuthnet filtered by the cardnbr column
- * @method     ChildAuthnet findOneByTrackIi(string $track_ii) Return the first ChildAuthnet filtered by the track_ii column
- * @method     ChildAuthnet findOneByExpdate(string $expdate) Return the first ChildAuthnet filtered by the expdate column
- * @method     ChildAuthnet findOneByCvv(string $cvv) Return the first ChildAuthnet filtered by the cvv column
- * @method     ChildAuthnet findOneByType(string $type) Return the first ChildAuthnet filtered by the type column
- * @method     ChildAuthnet findOneByAmount(string $amount) Return the first ChildAuthnet filtered by the amount column
- * @method     ChildAuthnet findOneByCardName(string $card_name) Return the first ChildAuthnet filtered by the card_name column
- * @method     ChildAuthnet findOneByStreet(string $street) Return the first ChildAuthnet filtered by the street column
- * @method     ChildAuthnet findOneByZipcode(string $zipcode) Return the first ChildAuthnet filtered by the zipcode column
- * @method     ChildAuthnet findOneByCustid(string $custid) Return the first ChildAuthnet filtered by the custid column
- * @method     ChildAuthnet findOneByCustpo(string $custpo) Return the first ChildAuthnet filtered by the custpo column
- * @method     ChildAuthnet findOneByTransId(string $trans_id) Return the first ChildAuthnet filtered by the trans_id column
- * @method     ChildAuthnet findOneByAuthcode(string $authcode) Return the first ChildAuthnet filtered by the authcode column
- * @method     ChildAuthnet findOneByAvsMsg(string $avs_msg) Return the first ChildAuthnet filtered by the avs_msg column
- * @method     ChildAuthnet findOneByErrorCode(string $error_code) Return the first ChildAuthnet filtered by the error_code column
- * @method     ChildAuthnet findOneByErrorMsg(string $error_msg) Return the first ChildAuthnet filtered by the error_msg column
- * @method     ChildAuthnet findOneByResult(string $result) Return the first ChildAuthnet filtered by the result column
- * @method     ChildAuthnet findOneByTrackI(string $track_i) Return the first ChildAuthnet filtered by the track_i column
- * @method     ChildAuthnet findOneByDummy(string $dummy) Return the first ChildAuthnet filtered by the dummy column *
+ * @method     ChildPayment findOneByOrdernbr(string $ordernbr) Return the first ChildPayment filtered by the ordernbr column
+ * @method     ChildPayment findOneByRectype(string $rectype) Return the first ChildPayment filtered by the rectype column
+ * @method     ChildPayment findOneByDate(int $date) Return the first ChildPayment filtered by the date column
+ * @method     ChildPayment findOneByTime(int $time) Return the first ChildPayment filtered by the time column
+ * @method     ChildPayment findOneByCardnbr(string $cardnbr) Return the first ChildPayment filtered by the cardnbr column
+ * @method     ChildPayment findOneByTrackIi(string $track_ii) Return the first ChildPayment filtered by the track_ii column
+ * @method     ChildPayment findOneByExpdate(string $expdate) Return the first ChildPayment filtered by the expdate column
+ * @method     ChildPayment findOneByCvv(string $cvv) Return the first ChildPayment filtered by the cvv column
+ * @method     ChildPayment findOneByType(string $type) Return the first ChildPayment filtered by the type column
+ * @method     ChildPayment findOneByAmount(string $amount) Return the first ChildPayment filtered by the amount column
+ * @method     ChildPayment findOneByCardName(string $card_name) Return the first ChildPayment filtered by the card_name column
+ * @method     ChildPayment findOneByStreet(string $street) Return the first ChildPayment filtered by the street column
+ * @method     ChildPayment findOneByZipcode(string $zipcode) Return the first ChildPayment filtered by the zipcode column
+ * @method     ChildPayment findOneByCustid(string $custid) Return the first ChildPayment filtered by the custid column
+ * @method     ChildPayment findOneByCustpo(string $custpo) Return the first ChildPayment filtered by the custpo column
+ * @method     ChildPayment findOneByTransId(string $trans_id) Return the first ChildPayment filtered by the trans_id column
+ * @method     ChildPayment findOneByAuthcode(string $authcode) Return the first ChildPayment filtered by the authcode column
+ * @method     ChildPayment findOneByAvsMsg(string $avs_msg) Return the first ChildPayment filtered by the avs_msg column
+ * @method     ChildPayment findOneByErrorCode(string $error_code) Return the first ChildPayment filtered by the error_code column
+ * @method     ChildPayment findOneByErrorMsg(string $error_msg) Return the first ChildPayment filtered by the error_msg column
+ * @method     ChildPayment findOneByResult(string $result) Return the first ChildPayment filtered by the result column
+ * @method     ChildPayment findOneByTrackI(string $track_i) Return the first ChildPayment filtered by the track_i column
+ * @method     ChildPayment findOneByDummy(string $dummy) Return the first ChildPayment filtered by the dummy column *
 
- * @method     ChildAuthnet requirePk($key, ConnectionInterface $con = null) Return the ChildAuthnet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOne(ConnectionInterface $con = null) Return the first ChildAuthnet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requirePk($key, ConnectionInterface $con = null) Return the ChildPayment by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOne(ConnectionInterface $con = null) Return the first ChildPayment matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildAuthnet requireOneByOrdernbr(string $ordernbr) Return the first ChildAuthnet filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByRectype(string $rectype) Return the first ChildAuthnet filtered by the rectype column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByDate(int $date) Return the first ChildAuthnet filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByTime(int $time) Return the first ChildAuthnet filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByCardnbr(string $cardnbr) Return the first ChildAuthnet filtered by the cardnbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByTrackIi(string $track_ii) Return the first ChildAuthnet filtered by the track_ii column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByExpdate(string $expdate) Return the first ChildAuthnet filtered by the expdate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByCvv(string $cvv) Return the first ChildAuthnet filtered by the cvv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByType(string $type) Return the first ChildAuthnet filtered by the type column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByAmount(string $amount) Return the first ChildAuthnet filtered by the amount column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByCardName(string $card_name) Return the first ChildAuthnet filtered by the card_name column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByStreet(string $street) Return the first ChildAuthnet filtered by the street column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByZipcode(string $zipcode) Return the first ChildAuthnet filtered by the zipcode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByCustid(string $custid) Return the first ChildAuthnet filtered by the custid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByCustpo(string $custpo) Return the first ChildAuthnet filtered by the custpo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByTransId(string $trans_id) Return the first ChildAuthnet filtered by the trans_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByAuthcode(string $authcode) Return the first ChildAuthnet filtered by the authcode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByAvsMsg(string $avs_msg) Return the first ChildAuthnet filtered by the avs_msg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByErrorCode(string $error_code) Return the first ChildAuthnet filtered by the error_code column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByErrorMsg(string $error_msg) Return the first ChildAuthnet filtered by the error_msg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByResult(string $result) Return the first ChildAuthnet filtered by the result column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByTrackI(string $track_i) Return the first ChildAuthnet filtered by the track_i column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildAuthnet requireOneByDummy(string $dummy) Return the first ChildAuthnet filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByOrdernbr(string $ordernbr) Return the first ChildPayment filtered by the ordernbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByRectype(string $rectype) Return the first ChildPayment filtered by the rectype column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByDate(int $date) Return the first ChildPayment filtered by the date column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByTime(int $time) Return the first ChildPayment filtered by the time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByCardnbr(string $cardnbr) Return the first ChildPayment filtered by the cardnbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByTrackIi(string $track_ii) Return the first ChildPayment filtered by the track_ii column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByExpdate(string $expdate) Return the first ChildPayment filtered by the expdate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByCvv(string $cvv) Return the first ChildPayment filtered by the cvv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByType(string $type) Return the first ChildPayment filtered by the type column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByAmount(string $amount) Return the first ChildPayment filtered by the amount column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByCardName(string $card_name) Return the first ChildPayment filtered by the card_name column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByStreet(string $street) Return the first ChildPayment filtered by the street column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByZipcode(string $zipcode) Return the first ChildPayment filtered by the zipcode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByCustid(string $custid) Return the first ChildPayment filtered by the custid column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByCustpo(string $custpo) Return the first ChildPayment filtered by the custpo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByTransId(string $trans_id) Return the first ChildPayment filtered by the trans_id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByAuthcode(string $authcode) Return the first ChildPayment filtered by the authcode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByAvsMsg(string $avs_msg) Return the first ChildPayment filtered by the avs_msg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByErrorCode(string $error_code) Return the first ChildPayment filtered by the error_code column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByErrorMsg(string $error_msg) Return the first ChildPayment filtered by the error_msg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByResult(string $result) Return the first ChildPayment filtered by the result column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByTrackI(string $track_i) Return the first ChildPayment filtered by the track_i column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildPayment requireOneByDummy(string $dummy) Return the first ChildPayment filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildAuthnet[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildAuthnet objects based on current ModelCriteria
- * @method     ChildAuthnet[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildAuthnet objects filtered by the ordernbr column
- * @method     ChildAuthnet[]|ObjectCollection findByRectype(string $rectype) Return ChildAuthnet objects filtered by the rectype column
- * @method     ChildAuthnet[]|ObjectCollection findByDate(int $date) Return ChildAuthnet objects filtered by the date column
- * @method     ChildAuthnet[]|ObjectCollection findByTime(int $time) Return ChildAuthnet objects filtered by the time column
- * @method     ChildAuthnet[]|ObjectCollection findByCardnbr(string $cardnbr) Return ChildAuthnet objects filtered by the cardnbr column
- * @method     ChildAuthnet[]|ObjectCollection findByTrackIi(string $track_ii) Return ChildAuthnet objects filtered by the track_ii column
- * @method     ChildAuthnet[]|ObjectCollection findByExpdate(string $expdate) Return ChildAuthnet objects filtered by the expdate column
- * @method     ChildAuthnet[]|ObjectCollection findByCvv(string $cvv) Return ChildAuthnet objects filtered by the cvv column
- * @method     ChildAuthnet[]|ObjectCollection findByType(string $type) Return ChildAuthnet objects filtered by the type column
- * @method     ChildAuthnet[]|ObjectCollection findByAmount(string $amount) Return ChildAuthnet objects filtered by the amount column
- * @method     ChildAuthnet[]|ObjectCollection findByCardName(string $card_name) Return ChildAuthnet objects filtered by the card_name column
- * @method     ChildAuthnet[]|ObjectCollection findByStreet(string $street) Return ChildAuthnet objects filtered by the street column
- * @method     ChildAuthnet[]|ObjectCollection findByZipcode(string $zipcode) Return ChildAuthnet objects filtered by the zipcode column
- * @method     ChildAuthnet[]|ObjectCollection findByCustid(string $custid) Return ChildAuthnet objects filtered by the custid column
- * @method     ChildAuthnet[]|ObjectCollection findByCustpo(string $custpo) Return ChildAuthnet objects filtered by the custpo column
- * @method     ChildAuthnet[]|ObjectCollection findByTransId(string $trans_id) Return ChildAuthnet objects filtered by the trans_id column
- * @method     ChildAuthnet[]|ObjectCollection findByAuthcode(string $authcode) Return ChildAuthnet objects filtered by the authcode column
- * @method     ChildAuthnet[]|ObjectCollection findByAvsMsg(string $avs_msg) Return ChildAuthnet objects filtered by the avs_msg column
- * @method     ChildAuthnet[]|ObjectCollection findByErrorCode(string $error_code) Return ChildAuthnet objects filtered by the error_code column
- * @method     ChildAuthnet[]|ObjectCollection findByErrorMsg(string $error_msg) Return ChildAuthnet objects filtered by the error_msg column
- * @method     ChildAuthnet[]|ObjectCollection findByResult(string $result) Return ChildAuthnet objects filtered by the result column
- * @method     ChildAuthnet[]|ObjectCollection findByTrackI(string $track_i) Return ChildAuthnet objects filtered by the track_i column
- * @method     ChildAuthnet[]|ObjectCollection findByDummy(string $dummy) Return ChildAuthnet objects filtered by the dummy column
- * @method     ChildAuthnet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildPayment[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildPayment objects based on current ModelCriteria
+ * @method     ChildPayment[]|ObjectCollection findByOrdernbr(string $ordernbr) Return ChildPayment objects filtered by the ordernbr column
+ * @method     ChildPayment[]|ObjectCollection findByRectype(string $rectype) Return ChildPayment objects filtered by the rectype column
+ * @method     ChildPayment[]|ObjectCollection findByDate(int $date) Return ChildPayment objects filtered by the date column
+ * @method     ChildPayment[]|ObjectCollection findByTime(int $time) Return ChildPayment objects filtered by the time column
+ * @method     ChildPayment[]|ObjectCollection findByCardnbr(string $cardnbr) Return ChildPayment objects filtered by the cardnbr column
+ * @method     ChildPayment[]|ObjectCollection findByTrackIi(string $track_ii) Return ChildPayment objects filtered by the track_ii column
+ * @method     ChildPayment[]|ObjectCollection findByExpdate(string $expdate) Return ChildPayment objects filtered by the expdate column
+ * @method     ChildPayment[]|ObjectCollection findByCvv(string $cvv) Return ChildPayment objects filtered by the cvv column
+ * @method     ChildPayment[]|ObjectCollection findByType(string $type) Return ChildPayment objects filtered by the type column
+ * @method     ChildPayment[]|ObjectCollection findByAmount(string $amount) Return ChildPayment objects filtered by the amount column
+ * @method     ChildPayment[]|ObjectCollection findByCardName(string $card_name) Return ChildPayment objects filtered by the card_name column
+ * @method     ChildPayment[]|ObjectCollection findByStreet(string $street) Return ChildPayment objects filtered by the street column
+ * @method     ChildPayment[]|ObjectCollection findByZipcode(string $zipcode) Return ChildPayment objects filtered by the zipcode column
+ * @method     ChildPayment[]|ObjectCollection findByCustid(string $custid) Return ChildPayment objects filtered by the custid column
+ * @method     ChildPayment[]|ObjectCollection findByCustpo(string $custpo) Return ChildPayment objects filtered by the custpo column
+ * @method     ChildPayment[]|ObjectCollection findByTransId(string $trans_id) Return ChildPayment objects filtered by the trans_id column
+ * @method     ChildPayment[]|ObjectCollection findByAuthcode(string $authcode) Return ChildPayment objects filtered by the authcode column
+ * @method     ChildPayment[]|ObjectCollection findByAvsMsg(string $avs_msg) Return ChildPayment objects filtered by the avs_msg column
+ * @method     ChildPayment[]|ObjectCollection findByErrorCode(string $error_code) Return ChildPayment objects filtered by the error_code column
+ * @method     ChildPayment[]|ObjectCollection findByErrorMsg(string $error_msg) Return ChildPayment objects filtered by the error_msg column
+ * @method     ChildPayment[]|ObjectCollection findByResult(string $result) Return ChildPayment objects filtered by the result column
+ * @method     ChildPayment[]|ObjectCollection findByTrackI(string $track_i) Return ChildPayment objects filtered by the track_i column
+ * @method     ChildPayment[]|ObjectCollection findByDummy(string $dummy) Return ChildPayment objects filtered by the dummy column
+ * @method     ChildPayment[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class AuthnetQuery extends ModelCriteria
+abstract class PaymentQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\AuthnetQuery object.
+     * Initializes internal state of \Base\PaymentQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'paymentsdb', $modelName = '\\Authnet', $modelAlias = null)
+    public function __construct($dbName = 'paymentsdb', $modelName = '\\Payment', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildAuthnetQuery object.
+     * Returns a new ChildPaymentQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildAuthnetQuery
+     * @return ChildPaymentQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildAuthnetQuery) {
+        if ($criteria instanceof ChildPaymentQuery) {
             return $criteria;
         }
-        $query = new ChildAuthnetQuery();
+        $query = new ChildPaymentQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -208,7 +208,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param array[$ordernbr, $rectype] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildAuthnet|array|mixed the result, formatted by the current formatter
+     * @return ChildPayment|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -217,7 +217,7 @@ abstract class AuthnetQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -230,7 +230,7 @@ abstract class AuthnetQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = AuthnetTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
+        if ((null !== ($obj = PaymentTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -247,7 +247,7 @@ abstract class AuthnetQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildAuthnet A model object, or null if the key is not found
+     * @return ChildPayment A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -263,10 +263,10 @@ abstract class AuthnetQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildAuthnet $obj */
-            $obj = new ChildAuthnet();
+            /** @var ChildPayment $obj */
+            $obj = new ChildPayment();
             $obj->hydrate($row);
-            AuthnetTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
+            PaymentTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
         }
         $stmt->closeCursor();
 
@@ -279,7 +279,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildAuthnet|array|mixed the result, formatted by the current formatter
+     * @return ChildPayment|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -321,12 +321,12 @@ abstract class AuthnetQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(AuthnetTableMap::COL_ORDERNBR, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(AuthnetTableMap::COL_RECTYPE, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(PaymentTableMap::COL_ORDERNBR, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(PaymentTableMap::COL_RECTYPE, $key[1], Criteria::EQUAL);
 
         return $this;
     }
@@ -336,7 +336,7 @@ abstract class AuthnetQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -344,8 +344,8 @@ abstract class AuthnetQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(AuthnetTableMap::COL_ORDERNBR, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(AuthnetTableMap::COL_RECTYPE, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(PaymentTableMap::COL_ORDERNBR, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(PaymentTableMap::COL_RECTYPE, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
             $this->addOr($cton0);
         }
@@ -365,7 +365,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $ordernbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByOrdernbr($ordernbr = null, $comparison = null)
     {
@@ -375,7 +375,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_ORDERNBR, $ordernbr, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_ORDERNBR, $ordernbr, $comparison);
     }
 
     /**
@@ -390,7 +390,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $rectype The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByRectype($rectype = null, $comparison = null)
     {
@@ -400,7 +400,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_RECTYPE, $rectype, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_RECTYPE, $rectype, $comparison);
     }
 
     /**
@@ -419,18 +419,18 @@ abstract class AuthnetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByDate($date = null, $comparison = null)
     {
         if (is_array($date)) {
             $useMinMax = false;
             if (isset($date['min'])) {
-                $this->addUsingAlias(AuthnetTableMap::COL_DATE, $date['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(PaymentTableMap::COL_DATE, $date['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($date['max'])) {
-                $this->addUsingAlias(AuthnetTableMap::COL_DATE, $date['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(PaymentTableMap::COL_DATE, $date['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -441,7 +441,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_DATE, $date, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_DATE, $date, $comparison);
     }
 
     /**
@@ -460,18 +460,18 @@ abstract class AuthnetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByTime($time = null, $comparison = null)
     {
         if (is_array($time)) {
             $useMinMax = false;
             if (isset($time['min'])) {
-                $this->addUsingAlias(AuthnetTableMap::COL_TIME, $time['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(PaymentTableMap::COL_TIME, $time['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($time['max'])) {
-                $this->addUsingAlias(AuthnetTableMap::COL_TIME, $time['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(PaymentTableMap::COL_TIME, $time['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -482,7 +482,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_TIME, $time, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_TIME, $time, $comparison);
     }
 
     /**
@@ -497,7 +497,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $cardnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByCardnbr($cardnbr = null, $comparison = null)
     {
@@ -507,7 +507,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_CARDNBR, $cardnbr, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_CARDNBR, $cardnbr, $comparison);
     }
 
     /**
@@ -522,7 +522,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $trackIi The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByTrackIi($trackIi = null, $comparison = null)
     {
@@ -532,7 +532,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_TRACK_II, $trackIi, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_TRACK_II, $trackIi, $comparison);
     }
 
     /**
@@ -547,7 +547,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $expdate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByExpdate($expdate = null, $comparison = null)
     {
@@ -557,7 +557,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_EXPDATE, $expdate, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_EXPDATE, $expdate, $comparison);
     }
 
     /**
@@ -572,7 +572,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $cvv The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByCvv($cvv = null, $comparison = null)
     {
@@ -582,7 +582,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_CVV, $cvv, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_CVV, $cvv, $comparison);
     }
 
     /**
@@ -597,7 +597,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $type The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByType($type = null, $comparison = null)
     {
@@ -607,7 +607,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_TYPE, $type, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_TYPE, $type, $comparison);
     }
 
     /**
@@ -622,7 +622,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $amount The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByAmount($amount = null, $comparison = null)
     {
@@ -632,7 +632,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_AMOUNT, $amount, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_AMOUNT, $amount, $comparison);
     }
 
     /**
@@ -647,7 +647,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $cardName The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByCardName($cardName = null, $comparison = null)
     {
@@ -657,7 +657,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_CARD_NAME, $cardName, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_CARD_NAME, $cardName, $comparison);
     }
 
     /**
@@ -672,7 +672,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $street The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByStreet($street = null, $comparison = null)
     {
@@ -682,7 +682,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_STREET, $street, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_STREET, $street, $comparison);
     }
 
     /**
@@ -697,7 +697,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $zipcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByZipcode($zipcode = null, $comparison = null)
     {
@@ -707,7 +707,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_ZIPCODE, $zipcode, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_ZIPCODE, $zipcode, $comparison);
     }
 
     /**
@@ -722,7 +722,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $custid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByCustid($custid = null, $comparison = null)
     {
@@ -732,7 +732,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_CUSTID, $custid, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_CUSTID, $custid, $comparison);
     }
 
     /**
@@ -747,7 +747,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $custpo The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByCustpo($custpo = null, $comparison = null)
     {
@@ -757,7 +757,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_CUSTPO, $custpo, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_CUSTPO, $custpo, $comparison);
     }
 
     /**
@@ -772,7 +772,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $transId The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByTransId($transId = null, $comparison = null)
     {
@@ -782,7 +782,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_TRANS_ID, $transId, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_TRANS_ID, $transId, $comparison);
     }
 
     /**
@@ -797,7 +797,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $authcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByAuthcode($authcode = null, $comparison = null)
     {
@@ -807,7 +807,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_AUTHCODE, $authcode, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_AUTHCODE, $authcode, $comparison);
     }
 
     /**
@@ -822,7 +822,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $avsMsg The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByAvsMsg($avsMsg = null, $comparison = null)
     {
@@ -832,7 +832,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_AVS_MSG, $avsMsg, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_AVS_MSG, $avsMsg, $comparison);
     }
 
     /**
@@ -847,7 +847,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $errorCode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByErrorCode($errorCode = null, $comparison = null)
     {
@@ -857,7 +857,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_ERROR_CODE, $errorCode, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_ERROR_CODE, $errorCode, $comparison);
     }
 
     /**
@@ -872,7 +872,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $errorMsg The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByErrorMsg($errorMsg = null, $comparison = null)
     {
@@ -882,7 +882,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_ERROR_MSG, $errorMsg, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_ERROR_MSG, $errorMsg, $comparison);
     }
 
     /**
@@ -897,7 +897,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $result The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByResult($result = null, $comparison = null)
     {
@@ -907,7 +907,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_RESULT, $result, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_RESULT, $result, $comparison);
     }
 
     /**
@@ -922,7 +922,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $trackI The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByTrackI($trackI = null, $comparison = null)
     {
@@ -932,7 +932,7 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_TRACK_I, $trackI, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_TRACK_I, $trackI, $comparison);
     }
 
     /**
@@ -947,7 +947,7 @@ abstract class AuthnetQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -957,21 +957,21 @@ abstract class AuthnetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(AuthnetTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(PaymentTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildAuthnet $authnet Object to remove from the list of results
+     * @param   ChildPayment $payment Object to remove from the list of results
      *
-     * @return $this|ChildAuthnetQuery The current query, for fluid interface
+     * @return $this|ChildPaymentQuery The current query, for fluid interface
      */
-    public function prune($authnet = null)
+    public function prune($payment = null)
     {
-        if ($authnet) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(AuthnetTableMap::COL_ORDERNBR), $authnet->getOrdernbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(AuthnetTableMap::COL_RECTYPE), $authnet->getRectype(), Criteria::NOT_EQUAL);
+        if ($payment) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(PaymentTableMap::COL_ORDERNBR), $payment->getOrdernbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(PaymentTableMap::COL_RECTYPE), $payment->getRectype(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 
@@ -987,7 +987,7 @@ abstract class AuthnetQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -998,8 +998,8 @@ abstract class AuthnetQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            AuthnetTableMap::clearInstancePool();
-            AuthnetTableMap::clearRelatedInstancePool();
+            PaymentTableMap::clearInstancePool();
+            PaymentTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -1017,26 +1017,26 @@ abstract class AuthnetQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(AuthnetTableMap::DATABASE_NAME);
+        $criteria->setDbName(PaymentTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            AuthnetTableMap::removeInstanceFromPool($criteria);
+            PaymentTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            AuthnetTableMap::clearRelatedInstancePool();
+            PaymentTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // AuthnetQuery
+} // PaymentQuery

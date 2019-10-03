@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <database name="paymentsdb" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
-  <table name="authnet" idMethod="native" phpName="Authnet">
+  <table name="authnet" idMethod="native" phpName="Payment">
     <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=" "/>
     <column name="rectype" phpName="Rectype" type="VARCHAR" size="3" primaryKey="true" required="true" defaultValue=""/>
     <column name="date" phpName="Date" type="INTEGER" size="8"/>

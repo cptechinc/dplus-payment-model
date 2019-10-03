@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \AuthnetQuery as ChildAuthnetQuery;
+use \PaymentQuery as ChildPaymentQuery;
 use \Exception;
 use \PDO;
-use Map\AuthnetTableMap;
+use Map\PaymentTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class Authnet implements ActiveRecordInterface
+abstract class Payment implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\AuthnetTableMap';
+    const TABLE_MAP = '\\Map\\PaymentTableMap';
 
 
     /**
@@ -243,7 +243,7 @@ abstract class Authnet implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\Authnet object.
+     * Initializes internal state of Base\Payment object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -340,9 +340,9 @@ abstract class Authnet implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>Authnet</code> instance.  If
-     * <code>obj</code> is an instance of <code>Authnet</code>, delegates to
-     * <code>equals(Authnet)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>Payment</code> instance.  If
+     * <code>obj</code> is an instance of <code>Payment</code>, delegates to
+     * <code>equals(Payment)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -408,7 +408,7 @@ abstract class Authnet implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|Authnet The current object, for fluid interface
+     * @return $this|Payment The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -703,7 +703,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [ordernbr] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setOrdernbr($v)
     {
@@ -713,7 +713,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->ordernbr !== $v) {
             $this->ordernbr = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_ORDERNBR] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_ORDERNBR] = true;
         }
 
         return $this;
@@ -723,7 +723,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [rectype] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setRectype($v)
     {
@@ -733,7 +733,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->rectype !== $v) {
             $this->rectype = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_RECTYPE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_RECTYPE] = true;
         }
 
         return $this;
@@ -743,7 +743,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [date] column.
      *
      * @param int $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setDate($v)
     {
@@ -753,7 +753,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->date !== $v) {
             $this->date = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_DATE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_DATE] = true;
         }
 
         return $this;
@@ -763,7 +763,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [time] column.
      *
      * @param int $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setTime($v)
     {
@@ -773,7 +773,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->time !== $v) {
             $this->time = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_TIME] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_TIME] = true;
         }
 
         return $this;
@@ -783,7 +783,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [cardnbr] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setCardnbr($v)
     {
@@ -793,7 +793,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->cardnbr !== $v) {
             $this->cardnbr = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_CARDNBR] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_CARDNBR] = true;
         }
 
         return $this;
@@ -803,7 +803,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [track_ii] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setTrackIi($v)
     {
@@ -813,7 +813,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->track_ii !== $v) {
             $this->track_ii = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_TRACK_II] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_TRACK_II] = true;
         }
 
         return $this;
@@ -823,7 +823,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [expdate] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setExpdate($v)
     {
@@ -833,7 +833,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->expdate !== $v) {
             $this->expdate = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_EXPDATE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_EXPDATE] = true;
         }
 
         return $this;
@@ -843,7 +843,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [cvv] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setCvv($v)
     {
@@ -853,7 +853,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->cvv !== $v) {
             $this->cvv = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_CVV] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_CVV] = true;
         }
 
         return $this;
@@ -863,7 +863,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [type] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setType($v)
     {
@@ -873,7 +873,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->type !== $v) {
             $this->type = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_TYPE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_TYPE] = true;
         }
 
         return $this;
@@ -883,7 +883,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [amount] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setAmount($v)
     {
@@ -893,7 +893,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->amount !== $v) {
             $this->amount = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_AMOUNT] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_AMOUNT] = true;
         }
 
         return $this;
@@ -903,7 +903,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [card_name] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setCardName($v)
     {
@@ -913,7 +913,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->card_name !== $v) {
             $this->card_name = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_CARD_NAME] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_CARD_NAME] = true;
         }
 
         return $this;
@@ -923,7 +923,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [street] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setStreet($v)
     {
@@ -933,7 +933,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->street !== $v) {
             $this->street = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_STREET] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_STREET] = true;
         }
 
         return $this;
@@ -943,7 +943,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [zipcode] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setZipcode($v)
     {
@@ -953,7 +953,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->zipcode !== $v) {
             $this->zipcode = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_ZIPCODE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_ZIPCODE] = true;
         }
 
         return $this;
@@ -963,7 +963,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [custid] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setCustid($v)
     {
@@ -973,7 +973,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->custid !== $v) {
             $this->custid = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_CUSTID] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_CUSTID] = true;
         }
 
         return $this;
@@ -983,7 +983,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [custpo] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setCustpo($v)
     {
@@ -993,7 +993,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->custpo !== $v) {
             $this->custpo = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_CUSTPO] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_CUSTPO] = true;
         }
 
         return $this;
@@ -1003,7 +1003,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [trans_id] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setTransId($v)
     {
@@ -1013,7 +1013,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->trans_id !== $v) {
             $this->trans_id = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_TRANS_ID] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_TRANS_ID] = true;
         }
 
         return $this;
@@ -1023,7 +1023,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [authcode] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setAuthcode($v)
     {
@@ -1033,7 +1033,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->authcode !== $v) {
             $this->authcode = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_AUTHCODE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_AUTHCODE] = true;
         }
 
         return $this;
@@ -1043,7 +1043,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [avs_msg] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setAvsMsg($v)
     {
@@ -1053,7 +1053,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->avs_msg !== $v) {
             $this->avs_msg = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_AVS_MSG] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_AVS_MSG] = true;
         }
 
         return $this;
@@ -1063,7 +1063,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [error_code] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setErrorCode($v)
     {
@@ -1073,7 +1073,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->error_code !== $v) {
             $this->error_code = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_ERROR_CODE] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_ERROR_CODE] = true;
         }
 
         return $this;
@@ -1083,7 +1083,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [error_msg] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setErrorMsg($v)
     {
@@ -1093,7 +1093,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->error_msg !== $v) {
             $this->error_msg = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_ERROR_MSG] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_ERROR_MSG] = true;
         }
 
         return $this;
@@ -1103,7 +1103,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [result] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setResult($v)
     {
@@ -1113,7 +1113,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->result !== $v) {
             $this->result = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_RESULT] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_RESULT] = true;
         }
 
         return $this;
@@ -1123,7 +1123,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [track_i] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setTrackI($v)
     {
@@ -1133,7 +1133,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->track_i !== $v) {
             $this->track_i = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_TRACK_I] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_TRACK_I] = true;
         }
 
         return $this;
@@ -1143,7 +1143,7 @@ abstract class Authnet implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\Authnet The current object (for fluent API support)
+     * @return $this|\Payment The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1153,7 +1153,7 @@ abstract class Authnet implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[AuthnetTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[PaymentTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1203,73 +1203,73 @@ abstract class Authnet implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : AuthnetTableMap::translateFieldName('Ordernbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PaymentTableMap::translateFieldName('Ordernbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ordernbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : AuthnetTableMap::translateFieldName('Rectype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PaymentTableMap::translateFieldName('Rectype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->rectype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : AuthnetTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PaymentTableMap::translateFieldName('Date', TableMap::TYPE_PHPNAME, $indexType)];
             $this->date = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : AuthnetTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PaymentTableMap::translateFieldName('Time', TableMap::TYPE_PHPNAME, $indexType)];
             $this->time = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : AuthnetTableMap::translateFieldName('Cardnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PaymentTableMap::translateFieldName('Cardnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cardnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : AuthnetTableMap::translateFieldName('TrackIi', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PaymentTableMap::translateFieldName('TrackIi', TableMap::TYPE_PHPNAME, $indexType)];
             $this->track_ii = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : AuthnetTableMap::translateFieldName('Expdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PaymentTableMap::translateFieldName('Expdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->expdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : AuthnetTableMap::translateFieldName('Cvv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PaymentTableMap::translateFieldName('Cvv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cvv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : AuthnetTableMap::translateFieldName('Type', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PaymentTableMap::translateFieldName('Type', TableMap::TYPE_PHPNAME, $indexType)];
             $this->type = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : AuthnetTableMap::translateFieldName('Amount', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PaymentTableMap::translateFieldName('Amount', TableMap::TYPE_PHPNAME, $indexType)];
             $this->amount = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : AuthnetTableMap::translateFieldName('CardName', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PaymentTableMap::translateFieldName('CardName', TableMap::TYPE_PHPNAME, $indexType)];
             $this->card_name = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : AuthnetTableMap::translateFieldName('Street', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PaymentTableMap::translateFieldName('Street', TableMap::TYPE_PHPNAME, $indexType)];
             $this->street = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : AuthnetTableMap::translateFieldName('Zipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : PaymentTableMap::translateFieldName('Zipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->zipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : AuthnetTableMap::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : PaymentTableMap::translateFieldName('Custid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->custid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : AuthnetTableMap::translateFieldName('Custpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : PaymentTableMap::translateFieldName('Custpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->custpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : AuthnetTableMap::translateFieldName('TransId', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : PaymentTableMap::translateFieldName('TransId', TableMap::TYPE_PHPNAME, $indexType)];
             $this->trans_id = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : AuthnetTableMap::translateFieldName('Authcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : PaymentTableMap::translateFieldName('Authcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->authcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : AuthnetTableMap::translateFieldName('AvsMsg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : PaymentTableMap::translateFieldName('AvsMsg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->avs_msg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : AuthnetTableMap::translateFieldName('ErrorCode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : PaymentTableMap::translateFieldName('ErrorCode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->error_code = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : AuthnetTableMap::translateFieldName('ErrorMsg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : PaymentTableMap::translateFieldName('ErrorMsg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->error_msg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : AuthnetTableMap::translateFieldName('Result', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : PaymentTableMap::translateFieldName('Result', TableMap::TYPE_PHPNAME, $indexType)];
             $this->result = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : AuthnetTableMap::translateFieldName('TrackI', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : PaymentTableMap::translateFieldName('TrackI', TableMap::TYPE_PHPNAME, $indexType)];
             $this->track_i = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : AuthnetTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : PaymentTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1279,10 +1279,10 @@ abstract class Authnet implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 23; // 23 = AuthnetTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 23; // 23 = PaymentTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\Authnet'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Payment'), 0, $e);
         }
     }
 
@@ -1324,13 +1324,13 @@ abstract class Authnet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildAuthnetQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildPaymentQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1349,8 +1349,8 @@ abstract class Authnet implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see Authnet::setDeleted()
-     * @see Authnet::isDeleted()
+     * @see Payment::setDeleted()
+     * @see Payment::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1359,11 +1359,11 @@ abstract class Authnet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildAuthnetQuery::create()
+            $deleteQuery = ChildPaymentQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1398,7 +1398,7 @@ abstract class Authnet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(AuthnetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PaymentTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1417,7 +1417,7 @@ abstract class Authnet implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                AuthnetTableMap::addInstanceToPool($this);
+                PaymentTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1476,73 +1476,73 @@ abstract class Authnet implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(AuthnetTableMap::COL_ORDERNBR)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_ORDERNBR)) {
             $modifiedColumns[':p' . $index++]  = 'ordernbr';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_RECTYPE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_RECTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'rectype';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_DATE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_DATE)) {
             $modifiedColumns[':p' . $index++]  = 'date';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TIME)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_TIME)) {
             $modifiedColumns[':p' . $index++]  = 'time';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CARDNBR)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_CARDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'cardnbr';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRACK_II)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_TRACK_II)) {
             $modifiedColumns[':p' . $index++]  = 'track_ii';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_EXPDATE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_EXPDATE)) {
             $modifiedColumns[':p' . $index++]  = 'expdate';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CVV)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_CVV)) {
             $modifiedColumns[':p' . $index++]  = 'cvv';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TYPE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_TYPE)) {
             $modifiedColumns[':p' . $index++]  = 'type';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AMOUNT)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_AMOUNT)) {
             $modifiedColumns[':p' . $index++]  = 'amount';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CARD_NAME)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_CARD_NAME)) {
             $modifiedColumns[':p' . $index++]  = 'card_name';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_STREET)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_STREET)) {
             $modifiedColumns[':p' . $index++]  = 'street';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ZIPCODE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_ZIPCODE)) {
             $modifiedColumns[':p' . $index++]  = 'zipcode';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CUSTID)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_CUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'custid';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CUSTPO)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_CUSTPO)) {
             $modifiedColumns[':p' . $index++]  = 'custpo';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRANS_ID)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_TRANS_ID)) {
             $modifiedColumns[':p' . $index++]  = 'trans_id';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AUTHCODE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_AUTHCODE)) {
             $modifiedColumns[':p' . $index++]  = 'authcode';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AVS_MSG)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_AVS_MSG)) {
             $modifiedColumns[':p' . $index++]  = 'avs_msg';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ERROR_CODE)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_ERROR_CODE)) {
             $modifiedColumns[':p' . $index++]  = 'error_code';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ERROR_MSG)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_ERROR_MSG)) {
             $modifiedColumns[':p' . $index++]  = 'error_msg';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_RESULT)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_RESULT)) {
             $modifiedColumns[':p' . $index++]  = 'result';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRACK_I)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_TRACK_I)) {
             $modifiedColumns[':p' . $index++]  = 'track_i';
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(PaymentTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1664,7 +1664,7 @@ abstract class Authnet implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = AuthnetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = PaymentTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1772,11 +1772,11 @@ abstract class Authnet implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['Authnet'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['Payment'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Authnet'][$this->hashCode()] = true;
-        $keys = AuthnetTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['Payment'][$this->hashCode()] = true;
+        $keys = PaymentTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getOrdernbr(),
             $keys[1] => $this->getRectype(),
@@ -1820,11 +1820,11 @@ abstract class Authnet implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Authnet
+     * @return $this|\Payment
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = AuthnetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = PaymentTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1835,7 +1835,7 @@ abstract class Authnet implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\Authnet
+     * @return $this|\Payment
      */
     public function setByPosition($pos, $value)
     {
@@ -1933,7 +1933,7 @@ abstract class Authnet implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = AuthnetTableMap::getFieldNames($keyType);
+        $keys = PaymentTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setOrdernbr($arr[$keys[0]]);
@@ -2023,7 +2023,7 @@ abstract class Authnet implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Authnet The current object, for fluid interface
+     * @return $this|\Payment The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -2043,76 +2043,76 @@ abstract class Authnet implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(AuthnetTableMap::DATABASE_NAME);
+        $criteria = new Criteria(PaymentTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(AuthnetTableMap::COL_ORDERNBR)) {
-            $criteria->add(AuthnetTableMap::COL_ORDERNBR, $this->ordernbr);
+        if ($this->isColumnModified(PaymentTableMap::COL_ORDERNBR)) {
+            $criteria->add(PaymentTableMap::COL_ORDERNBR, $this->ordernbr);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_RECTYPE)) {
-            $criteria->add(AuthnetTableMap::COL_RECTYPE, $this->rectype);
+        if ($this->isColumnModified(PaymentTableMap::COL_RECTYPE)) {
+            $criteria->add(PaymentTableMap::COL_RECTYPE, $this->rectype);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_DATE)) {
-            $criteria->add(AuthnetTableMap::COL_DATE, $this->date);
+        if ($this->isColumnModified(PaymentTableMap::COL_DATE)) {
+            $criteria->add(PaymentTableMap::COL_DATE, $this->date);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TIME)) {
-            $criteria->add(AuthnetTableMap::COL_TIME, $this->time);
+        if ($this->isColumnModified(PaymentTableMap::COL_TIME)) {
+            $criteria->add(PaymentTableMap::COL_TIME, $this->time);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CARDNBR)) {
-            $criteria->add(AuthnetTableMap::COL_CARDNBR, $this->cardnbr);
+        if ($this->isColumnModified(PaymentTableMap::COL_CARDNBR)) {
+            $criteria->add(PaymentTableMap::COL_CARDNBR, $this->cardnbr);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRACK_II)) {
-            $criteria->add(AuthnetTableMap::COL_TRACK_II, $this->track_ii);
+        if ($this->isColumnModified(PaymentTableMap::COL_TRACK_II)) {
+            $criteria->add(PaymentTableMap::COL_TRACK_II, $this->track_ii);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_EXPDATE)) {
-            $criteria->add(AuthnetTableMap::COL_EXPDATE, $this->expdate);
+        if ($this->isColumnModified(PaymentTableMap::COL_EXPDATE)) {
+            $criteria->add(PaymentTableMap::COL_EXPDATE, $this->expdate);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CVV)) {
-            $criteria->add(AuthnetTableMap::COL_CVV, $this->cvv);
+        if ($this->isColumnModified(PaymentTableMap::COL_CVV)) {
+            $criteria->add(PaymentTableMap::COL_CVV, $this->cvv);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TYPE)) {
-            $criteria->add(AuthnetTableMap::COL_TYPE, $this->type);
+        if ($this->isColumnModified(PaymentTableMap::COL_TYPE)) {
+            $criteria->add(PaymentTableMap::COL_TYPE, $this->type);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AMOUNT)) {
-            $criteria->add(AuthnetTableMap::COL_AMOUNT, $this->amount);
+        if ($this->isColumnModified(PaymentTableMap::COL_AMOUNT)) {
+            $criteria->add(PaymentTableMap::COL_AMOUNT, $this->amount);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CARD_NAME)) {
-            $criteria->add(AuthnetTableMap::COL_CARD_NAME, $this->card_name);
+        if ($this->isColumnModified(PaymentTableMap::COL_CARD_NAME)) {
+            $criteria->add(PaymentTableMap::COL_CARD_NAME, $this->card_name);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_STREET)) {
-            $criteria->add(AuthnetTableMap::COL_STREET, $this->street);
+        if ($this->isColumnModified(PaymentTableMap::COL_STREET)) {
+            $criteria->add(PaymentTableMap::COL_STREET, $this->street);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ZIPCODE)) {
-            $criteria->add(AuthnetTableMap::COL_ZIPCODE, $this->zipcode);
+        if ($this->isColumnModified(PaymentTableMap::COL_ZIPCODE)) {
+            $criteria->add(PaymentTableMap::COL_ZIPCODE, $this->zipcode);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CUSTID)) {
-            $criteria->add(AuthnetTableMap::COL_CUSTID, $this->custid);
+        if ($this->isColumnModified(PaymentTableMap::COL_CUSTID)) {
+            $criteria->add(PaymentTableMap::COL_CUSTID, $this->custid);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_CUSTPO)) {
-            $criteria->add(AuthnetTableMap::COL_CUSTPO, $this->custpo);
+        if ($this->isColumnModified(PaymentTableMap::COL_CUSTPO)) {
+            $criteria->add(PaymentTableMap::COL_CUSTPO, $this->custpo);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRANS_ID)) {
-            $criteria->add(AuthnetTableMap::COL_TRANS_ID, $this->trans_id);
+        if ($this->isColumnModified(PaymentTableMap::COL_TRANS_ID)) {
+            $criteria->add(PaymentTableMap::COL_TRANS_ID, $this->trans_id);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AUTHCODE)) {
-            $criteria->add(AuthnetTableMap::COL_AUTHCODE, $this->authcode);
+        if ($this->isColumnModified(PaymentTableMap::COL_AUTHCODE)) {
+            $criteria->add(PaymentTableMap::COL_AUTHCODE, $this->authcode);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_AVS_MSG)) {
-            $criteria->add(AuthnetTableMap::COL_AVS_MSG, $this->avs_msg);
+        if ($this->isColumnModified(PaymentTableMap::COL_AVS_MSG)) {
+            $criteria->add(PaymentTableMap::COL_AVS_MSG, $this->avs_msg);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ERROR_CODE)) {
-            $criteria->add(AuthnetTableMap::COL_ERROR_CODE, $this->error_code);
+        if ($this->isColumnModified(PaymentTableMap::COL_ERROR_CODE)) {
+            $criteria->add(PaymentTableMap::COL_ERROR_CODE, $this->error_code);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_ERROR_MSG)) {
-            $criteria->add(AuthnetTableMap::COL_ERROR_MSG, $this->error_msg);
+        if ($this->isColumnModified(PaymentTableMap::COL_ERROR_MSG)) {
+            $criteria->add(PaymentTableMap::COL_ERROR_MSG, $this->error_msg);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_RESULT)) {
-            $criteria->add(AuthnetTableMap::COL_RESULT, $this->result);
+        if ($this->isColumnModified(PaymentTableMap::COL_RESULT)) {
+            $criteria->add(PaymentTableMap::COL_RESULT, $this->result);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_TRACK_I)) {
-            $criteria->add(AuthnetTableMap::COL_TRACK_I, $this->track_i);
+        if ($this->isColumnModified(PaymentTableMap::COL_TRACK_I)) {
+            $criteria->add(PaymentTableMap::COL_TRACK_I, $this->track_i);
         }
-        if ($this->isColumnModified(AuthnetTableMap::COL_DUMMY)) {
-            $criteria->add(AuthnetTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(PaymentTableMap::COL_DUMMY)) {
+            $criteria->add(PaymentTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2130,9 +2130,9 @@ abstract class Authnet implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildAuthnetQuery::create();
-        $criteria->add(AuthnetTableMap::COL_ORDERNBR, $this->ordernbr);
-        $criteria->add(AuthnetTableMap::COL_RECTYPE, $this->rectype);
+        $criteria = ChildPaymentQuery::create();
+        $criteria->add(PaymentTableMap::COL_ORDERNBR, $this->ordernbr);
+        $criteria->add(PaymentTableMap::COL_RECTYPE, $this->rectype);
 
         return $criteria;
     }
@@ -2201,7 +2201,7 @@ abstract class Authnet implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Authnet (or compatible) type.
+     * @param      object $copyObj An object of \Payment (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2245,7 +2245,7 @@ abstract class Authnet implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \Authnet Clone of current object.
+     * @return \Payment Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2318,7 +2318,7 @@ abstract class Authnet implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(AuthnetTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(PaymentTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

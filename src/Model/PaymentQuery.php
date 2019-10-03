@@ -1,11 +1,11 @@
 <?php
 
-use Base\AuthnetQuery as BaseAuthnetQuery;
+use Base\PaymentQuery as BasePaymentQuery;
 
 use Dplus\Payment\Model\QueryTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'authnet' table.
+ * Skeleton subclass for performing query and update operations on the 'Payment' table.
  *
  *
  *
@@ -14,7 +14,7 @@ use Dplus\Payment\Model\QueryTraits;
  * long as it does not already exist in the output directory.
  *
  */
-class AuthnetQuery extends BaseAuthnetQuery {
+class PaymentQuery extends BasePaymentQuery {
 	use QueryTraits;
 
 }
