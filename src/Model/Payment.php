@@ -2,8 +2,8 @@
 
 use Base\Payment as BasePayment;
 
-use Dplus\Payment\Model\ThrowErrorTrait;
-use Dplus\Payment\Model\MagicMethodTraits;
+use Dplus\Payments\Model\ThrowErrorTrait;
+use Dplus\Payments\Model\MagicMethodTraits;
 
 /**
  * Skeleton subclass for representing a row from the 'Payment' table.
