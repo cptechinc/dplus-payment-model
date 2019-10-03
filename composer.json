@@ -1,0 +1,11 @@
+
+{
+	"name": "cptechinc/dpluso-payment-model",
+    "type": "library",
+    "description": "Classes for Dplus Payment Session Database Tables",
+    "keywords": ["dplus-payment-model"],
+    "homepage": "http://github.com/cptechinc/dplus-payment-model",
+	"autoload": {
+		"classmap": ["src/", "src/Model/"]
+	}
+}

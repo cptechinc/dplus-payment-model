@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="paymentsdb" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="authnet" idMethod="native" phpName="Authnet">
+    <column name="ordernbr" phpName="Ordernbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=" "/>
+    <column name="rectype" phpName="Rectype" type="VARCHAR" size="3" primaryKey="true" required="true" defaultValue=""/>
+    <column name="date" phpName="Date" type="INTEGER" size="8"/>
+    <column name="time" phpName="Time" type="INTEGER" size="8"/>
+    <column name="cardnbr" phpName="Cardnbr" type="LONGVARCHAR"/>
+    <column name="track_ii" phpName="TrackIi" type="LONGVARCHAR"/>
+    <column name="expdate" phpName="Expdate" type="LONGVARCHAR"/>
+    <column name="cvv" phpName="Cvv" type="LONGVARCHAR"/>
+    <column name="type" phpName="Type" type="VARCHAR" size="10"/>
+    <column name="amount" phpName="Amount" type="VARCHAR" size="10"/>
+    <column name="card_name" phpName="CardName" type="VARCHAR" size="20"/>
+    <column name="street" phpName="Street" type="VARCHAR" size="20"/>
+    <column name="zipcode" phpName="Zipcode" type="VARCHAR" size="10"/>
+    <column name="custid" phpName="Custid" type="VARCHAR" size="6"/>
+    <column name="custpo" phpName="Custpo" type="VARCHAR" size="20"/>
+    <column name="trans_id" phpName="TransId" type="VARCHAR" size="30"/>
+    <column name="authcode" phpName="Authcode" type="VARCHAR" size="10"/>
+    <column name="avs_msg" phpName="AvsMsg" type="VARCHAR" size="50"/>
+    <column name="error_code" phpName="ErrorCode" type="VARCHAR" size="10"/>
+    <column name="error_msg" phpName="ErrorMsg" type="VARCHAR" size="150"/>
+    <column name="result" phpName="Result" type="VARCHAR" size="30"/>
+    <column name="track_i" phpName="TrackI" type="LONGVARCHAR"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="MyISAM"/>
+    </vendor>
+  </table>
+</database>
