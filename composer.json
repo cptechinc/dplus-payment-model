@@ -1,6 +1,6 @@
 
 {
-	"name": "cptechinc/dpluso-payment-model",
+	"name": "cptechinc/dplus-payment-model",
     "type": "library",
     "description": "Classes for Dplus Payment Session Database Tables",
     "keywords": ["dplus-payment-model"],
