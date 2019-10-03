@@ -22,6 +22,7 @@ class Payment extends BasePayment {
 	const RECORDTYPE_RESPONSE = 'RES';
 	const RECORDTYPE_REQUEST  = 'REQ';
 
+	private $salt;
 
 	/**
 	 * Transaction Type
@@ -50,6 +51,10 @@ class Payment extends BasePayment {
 		'authorizationcode' => 'authcode'
 	);
 
+	public function set_salt($salt) {
+		$this->salt = $salt;
+	}
+
 	/**
 	 * Returns if Payment Record is a Request
 	 *
@@ -67,4 +72,5 @@ class Payment extends BasePayment {
 	public function is_response() {
 		return $this->rectype == self::RECORDTYPE_RESPONSE;
 	}
+
 }
