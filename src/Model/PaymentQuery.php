@@ -29,6 +29,19 @@ class PaymentQuery extends BasePaymentQuery {
 	}
 
 	/**
+	 * Encrypts Card Number in the Database
+	 *
+	 * @param string $salt Value to Encrypt with
+	 * @param string $ordn Sales Order number
+	 * @return void
+	 */
+	public function encrypt_request_cardnumber($salt, $ordn) {
+		$sql = "UPDATE authnet SET cardnbr = AES_ENCRYPT(cardnbr, HEX('$salt') WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$params = array(':ordn' => $ordn);
+		$this->execute_query($sql, $params);
+	}
+
+	/**
 	 * Selects Decrypted Card Expiration Date
 	 *
 	 * @param string $salt Value to Decrypt with
@@ -37,6 +50,19 @@ class PaymentQuery extends BasePaymentQuery {
 	public function select_decrypted_expiredate($salt) {
 		$this->withColumn("cast(aes_decrypt(expdate, hex($salt)) as char charset utf8", 'expiredate');
 		$this->select('expiredate');
+	}
+
+	/**
+	 * Encrypts Expiration Date in the Database
+	 *
+	 * @param string $salt Value to Encrypt with
+	 * @param string $ordn Sales Order number
+	 * @return void
+	 */
+	public function encrypt_request_expiredate($salt, $ordn) {
+		$sql = "UPDATE authnet SET expdate = AES_ENCRYPT(expdate, HEX('$salt') WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$params = array(':ordn' => $ordn);
+		$this->execute_query($sql, $params);
 	}
 
 	/**
@@ -51,6 +77,19 @@ class PaymentQuery extends BasePaymentQuery {
 	}
 
 	/**
+	 * Encrypts CVV in the Database
+	 *
+	 * @param string $salt Value to Encrypt with
+	 * @param string $ordn Sales Order number
+	 * @return void
+	 */
+	public function encrypt_request_cvv($salt, $ordn) {
+		$sql = "UPDATE authnet SET cvv = AES_ENCRYPT(cvv, HEX('$salt') WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$params = array(':ordn' => $ordn);
+		$this->execute_query($sql, $params);
+	}
+
+	/**
 	 * Selects Decrypted Card Track1 Data
 	 *
 	 * @param string $salt Value to Decrypt with
@@ -62,6 +101,19 @@ class PaymentQuery extends BasePaymentQuery {
 	}
 
 	/**
+	 * Encrypts Track1 data in the Database
+	 *
+	 * @param string $salt Value to Encrypt with
+	 * @param string $ordn Sales Order number
+	 * @return void
+	 */
+	public function encrypt_request_track1($salt, $ordn) {
+		$sql = "UPDATE authnet SET track_i = AES_ENCRYPT(track_i, HEX('$salt') WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$params = array(':ordn' => $ordn);
+		$this->execute_query($sql, $params);
+	}
+
+	/**
 	 * Selects Decrypted Card Track2 Data
 	 *
 	 * @param string $salt Value to Decrypt with
@@ -70,5 +122,18 @@ class PaymentQuery extends BasePaymentQuery {
 	public function select_decrypted_track2($salt) {
 		$this->withColumn("cast(aes_decrypt(track_ii, hex($salt)) as char charset utf8", 'track2');
 		$this->select('track2');
+	}
+
+	/**
+	 * Encrypts Track2 data in the Database
+	 *
+	 * @param string $salt Value to Encrypt with
+	 * @param string $ordn Sales Order number
+	 * @return void
+	 */
+	public function encrypt_request_track2($salt, $ordn) {
+		$sql = "UPDATE authnet SET track_ii = AES_ENCRYPT(track_ii, HEX('$salt') WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$params = array(':ordn' => $ordn);
+		$this->execute_query($sql, $params);
 	}
 }

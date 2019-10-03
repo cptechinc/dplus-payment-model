@@ -180,4 +180,47 @@ class Payment extends BasePayment {
 		$request->setRectype(self::RECORDTYPE_REQUEST);
 		return $request;
 	}
+
+	/**
+	 * Encrypts Card Number in the Database
+	 *  @return void
+	 */
+	public function encrypt_cardnumber() {
+		PaymentQuery::create()->encrypt_request_expiredate($this->salt, $this->ordn);
+	}
+
+	/**
+	 * Encrypts Expiration Date in the Database
+	 * @return void
+	 */
+	public function encrypt_expiredate($salt, $ordn) {
+		PaymentQuery::create()->encrypt_request_expiredate($this->salt, $this->ordn);
+	}
+
+
+
+	/**
+	 * Encrypts CVV in the Database
+	 * @return void
+	 */
+	public function encrypt_cvv() {
+		PaymentQuery::create()->encrypt_request_cvv($this->salt, $this->ordn);
+	}
+
+	/** 
+	 * Encrypts Track1 data in the Database
+	 * @return void
+	 */
+	public function encrypt_track1() {
+		PaymentQuery::create()->encrypt_request_track1($this->salt, $this->ordn);
+	}
+
+
+	/**
+	 * Encrypts Track2 data in the Database
+	 * @return void
+	 */
+	public function encrypt_track2() {
+		PaymentQuery::create()->encrypt_request_track2($this->salt, $this->ordn);
+	}
 }
