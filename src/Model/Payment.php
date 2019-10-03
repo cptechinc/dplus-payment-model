@@ -22,6 +22,9 @@ class Payment extends BasePayment {
 	const RECORDTYPE_RESPONSE = 'RES';
 	const RECORDTYPE_REQUEST  = 'REQ';
 
+	const RESULT_DECLINED = 'DECLINED';
+	const RESULT_APPROVED = 'APPROVED';
+
 	private $salt;
 
 	/**
@@ -136,5 +139,45 @@ class Payment extends BasePayment {
 		$q->filterByOrdn($this->ordn);
 		$q->filterByRecordtype($this->recordtype);
 		$q->findOne();
+	}
+
+	/**
+	 * Sets Result property to Approved
+	 *
+	 * @return void
+	 */
+	public function set_result_approved() {
+		$this->result = self::RESULT_APPROVED;
+	}
+
+	/**
+	 * Sets Result property to Declined
+	 *
+	 * @return void
+	 */
+	public function set_result_declined() {
+		$this->result = self::RESULT_DECLINED;
+	}
+
+	/**
+	 * Creates a Payment object with the Rectype of Response
+	 *
+	 * @return Payment
+	 */
+	public static function create_response() {
+		$response = new self();
+		$response->setRectype(self::RECORDTYPE_RESPONSE);
+		return $response;
+	}
+
+	/**
+	 * Creates a Payment object with the Rectype of Request
+	 *
+	 * @return Payment
+	 */
+	public static function create_request() {
+		$request = new self();
+		$request->setRectype(self::RECORDTYPE_REQUEST);
+		return $request;
 	}
 }
