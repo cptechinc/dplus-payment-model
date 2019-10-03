@@ -73,4 +73,68 @@ class Payment extends BasePayment {
 		return $this->rectype == self::RECORDTYPE_RESPONSE;
 	}
 
+	/**
+	 * Returns Decrypted Card Number
+	 * 
+	 * @return string 
+	 */
+	public function cardnumber() {
+		$q = PaymentQuery::create();
+		$q->select_decrypted_cardnumber($this->salt);
+		$q->filterByOrdn($this->ordn);
+		$q->filterByRecordtype($this->recordtype);
+		$q->findOne();
+	}
+
+	/**
+	 * Returns Decrypted Card Expiration Date
+	 * 
+	 * @return string 
+	 */
+	public function expiredate() {
+		$q = PaymentQuery::create();
+		$q->select_decrypted_expiredate($this->salt);
+		$q->filterByOrdn($this->ordn);
+		$q->filterByRecordtype($this->recordtype);
+		$q->findOne();
+	}
+
+	/**
+	 * Returns Decrypted Card CVV
+	 * 
+	 * @return string 
+	 */
+	public function cvv() {
+		$q = PaymentQuery::create();
+		$q->select_decrypted_cvv($this->salt);
+		$q->filterByOrdn($this->ordn);
+		$q->filterByRecordtype($this->recordtype);
+		$q->findOne();
+	}
+
+	/**
+	 * Returns Decrypted Card Track1 Data
+	 * 
+	 * @return string 
+	 */
+	public function track1() {
+		$q = PaymentQuery::create();
+		$q->select_decrypted_track1($this->salt);
+		$q->filterByOrdn($this->ordn);
+		$q->filterByRecordtype($this->recordtype);
+		$q->findOne();
+	}
+
+	/**
+	 * Returns Decrypted Card Track2 Data
+	 * 
+	 * @return string 
+	 */
+	public function track2() {
+		$q = PaymentQuery::create();
+		$q->select_decrypted_track2($this->salt);
+		$q->filterByOrdn($this->ordn);
+		$q->filterByRecordtype($this->recordtype);
+		$q->findOne();
+	}
 }
