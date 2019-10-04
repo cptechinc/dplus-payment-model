@@ -1,10 +1,10 @@
 <?php
-	namespace Dpluso\Payments\Model;
+	namespace Dplus\Payments\Model;
 
 	/**
 	 * Class for Throwing Errors if class or static function needs it
 	 */
-	class ThrowError {
+	class ThrowErrorTrait {
 		/**
 		 * Throws an error to be logged
 		 * @param  string $class Class Name that Threw Error

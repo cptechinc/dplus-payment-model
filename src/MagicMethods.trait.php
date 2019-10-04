@@ -1,5 +1,5 @@
 <?php
-	namespace Dpluso\Payments\Model;
+	namespace Dplus\Payments\Model;
 
 	/**
 	 * Traits that provide Magic Methods
