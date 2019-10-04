@@ -4,7 +4,7 @@
 	/**
 	 * Class for Throwing Errors if class or static function needs it
 	 */
-	class ThrowErrorTrait {
+	class ThrowError {
 		/**
 		 * Throws an error to be logged
 		 * @param  string $class Class Name that Threw Error
