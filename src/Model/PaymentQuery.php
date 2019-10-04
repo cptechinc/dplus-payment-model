@@ -2,7 +2,7 @@
 
 use Base\PaymentQuery as BasePaymentQuery;
 
-use Dplus\Payment\Model\QueryTraits;
+use Dplus\Payments\Model\QueryTraits;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'Payment' table.
