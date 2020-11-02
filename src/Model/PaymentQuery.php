@@ -32,7 +32,6 @@ class PaymentQuery extends BasePaymentQuery {
 	 */
 	public function encrypt_column($col, $salt, $ordn) {
 		$sql = "UPDATE authnet SET cardnbr = AES_ENCRYPT($col, HEX('$salt')) WHERE ordernbr = :ordn AND rectype = 'REQ'";
-		echo $sql;
 		$params = array(':ordn' => $ordn);
 		$this->execute_query($sql, $params);
 	}
