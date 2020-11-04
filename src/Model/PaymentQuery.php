@@ -12,7 +12,6 @@ class PaymentQuery extends BasePaymentQuery {
 
 	/**
 	 * Add Decrypted Column to Query
-	 *
 	 * @param string $col   Column
 	 * @param string $salt  Salt Value
 	 * @return PaymentQuery 
@@ -31,7 +30,7 @@ class PaymentQuery extends BasePaymentQuery {
 	 * @return void
 	 */
 	public function encrypt_column($col, $salt, $ordn) {
-		$sql = "UPDATE authnet SET cardnbr = AES_ENCRYPT($col, HEX('$salt')) WHERE ordernbr = :ordn AND rectype = 'REQ'";
+		$sql = "UPDATE authnet SET $col = AES_ENCRYPT($col, HEX('$salt')) WHERE ordernbr = :ordn AND rectype = 'REQ'";
 		$params = array(':ordn' => $ordn);
 		$this->execute_query($sql, $params);
 	}

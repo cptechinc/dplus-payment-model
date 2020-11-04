@@ -7,6 +7,12 @@ use Dplus\Payments\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'Payment' table.
+ * @property string $type Transaction Type
+ *                                          CREDIT   = CAPTURE | AUTHORIZE & CAPTURE
+ *                                          DEBIT    = RETURN
+ *                                          VOID     = CANCEL TRRANSACTION
+ *                                          PREAUTH  = PREAUTHORIZE FOR AMOUNT
+ *                                          CPREAUTH = CAPTURE PREAUTHORIZED 
  */
 class Payment extends BasePayment {
 	use ThrowErrorTrait;
@@ -19,17 +25,6 @@ class Payment extends BasePayment {
 	const RESULT_APPROVED = 'APPROVED';
 
 	private $salt;
-
-	/**
-	 * Transaction Type
-	 * CREDIT   = CAPTURE | AUTHORIZE & CAPTURE
-	 * DEBIT    = RETURN
-	 * VOID     = CANCEL TRRANSACTION
-	 * PREAUTH  = PREAUTHORIZE FOR AMOUNT
-	 * CPREAUTH = CAPTURE PREAUTHORIZED 
-	 * @var string
-	 */
-	protected $type;
 
 	/**
 	 * Column Aliases to lookup / get properties
